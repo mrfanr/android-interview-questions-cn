@@ -18,37 +18,46 @@
 ### Java 核心
 
 * 解释一下 OOP 的概念
-  - 面向对象编程是使用类，对象，
-    [继承性](https://zh.wikipedia.org/wiki/%E7%BB%A7%E6%89%BF_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6))，
-    [多态性](https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%9E%8B_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6))，
-    [封装性](https://zh.wikipedia.org/wiki/%E5%B0%81%E8%A3%9D_(%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88))和
-    [抽象](https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%8C%96_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8))的一种程序设计方法。
-* 抽象类和接口的区别？[链接](https://arjun-sna.github.io/java/2017/02/02/abstractvsinterface/)
+  - 面向对象编程是使用类，对象，[继承性](https://zh.wikipedia.org/wiki/%E7%BB%A7%E6%89%BF_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6))，[多态性](https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%9E%8B_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6))，[封装性](https://zh.wikipedia.org/wiki/%E5%B0%81%E8%A3%9D_(%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88))和[抽象](https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%8C%96_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8))的一种程序设计方法。
+
+
+* 抽象类和接口的区别？[Link](https://arjun-sna.github.io/java/2017/02/02/abstractvsinterface/)
     - 抽象类是一个可同时包含具体方法和抽象方法(方法未被实现)的类。抽象方法必须被该抽象类的子类实现。抽象类是可以继承的。
-    - 接口像是描述类的一张蓝图或者说是类的一种契约，它包含了许多空方法，这代表着它的所有的子类都应该拥有共同点。它的子类应该提供这些空方法的具体实现。一       个类需要用```implements```来实现接口，接口可以用```extends```来继承其他接口。
-* What is serialization? How do you implement it?
-  - Serialization is the process of converting an object into a stream of bytes in order to store 
-    an object into memory so that it can be recreated at a later time while still keeping the 
-    objects original state and data. In Java there are two methods of doing this, one is by 
-    implementing Serializable or Parcelable. In Android, however, Serializable should never be used 
-    in Android. Parcelable was created to be more efficient then Serializable, and performs about 
-    10x faster then Serializable because Serializable uses reflection which is a slow process and 
-    tends to create a lot of temporary objects which may cause garbage collection to occur more often.
+    - 接口像是描述类的一张蓝图或者说是类的一种契约，它包含了许多空方法，这代表着它的所有的子类都应该拥有共同点。它的子类应该提供这些空方法的具体实现。一 个类需要用 ```implements``` 来实现接口，接口可以用 ```extends``` 来继承其他接口。
+
+* 序列化是什么?如何实现它?
+
+  - 序列化是将对象转换成字节流的过程，以便存储一个对象到内存中，这样它就可以在以后的时间被重新创建，同时仍然保留对象原始状态和数据。在 Java 中有两种方法，一种是通过 Parcelable 实现序列化。还有一种方式是 通过 Serializable ，在 Android 中，是不能使用 Serializable 的，但是用 Parcelable 实现起来更高效，之后可串行化，执行起来快了10倍，再加上因为可序列化使用反射，这是一个缓慢的过程，会创建大量的临时对象，这可能导致垃圾回收更频繁地发生。
+
 * 什么是单例？
   - 单例模式指的是一个类只能被初始化一次，即只有一个实例。[单例模式限定一个类只能拥有一个实例。这在系统中只需要一个实例来和其他模块协调工作时是很实用的。单例普遍使用在只需要一个或是限制一定数量实例的系统中。](https://en.wikipedia.org/wiki/Singleton_pattern)
+
 * 什么是匿名内部类？
-* 对字符串进行```==```和```equals()```操作时有什么区别？
-* ```hashCode()```和```equals()```何时使用？
-* What are these `final`, `finally` and `finalize`?
+
+* 对字符串进行 ```==``` 和 ```equals()``` 操作时有什么区别？
+
+* ```hashCode()``` 和 ```equals()``` 何时使用？
+
+* Java 中的 `final`, `finally` 和 `finalize`?
+
 * 什么是内存泄露，Java 是如何处理它的？
-* What is garbage collector? How it works?
-  -All objects are allocated on the heap area managed by the JVM. 
-  As long as an object is being referenced, the JVM considers it  alive. 
-  Once an object is no longer referenced and therefore is not reachable by the application code,
-  the garbage collector removes it and reclaims the unused memory.
+
+* 垃圾收集器是什么?它是如何工作的
+
+  - 所有对象都分配给JVM管理的堆区域。
+
+    只要对象被引用，JVM就会认为它还存活于进程中。
+
+    一旦对象不再被引用，就不能被应用程序所访问，
+
+    垃圾收集器将删除它并重新声明未使用的内存。
+
 * 比较 `Arrays` 和 `ArrayLists`。
+
 * 比较 `HashSet` 和 `TreeSet`。
+
 * Java 中的类型转换。
+
 * 方法重载和重写的区别
     <p align="center">
         <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
@@ -69,33 +78,58 @@
     - 方法重载时参数列表必须不同，方法重写时参数列表必须相同。
 
 * 什么是访问修饰符？它们能做什么？
-* 接口可以继承另一个接口吗？
-* Java 中 `static` 关键字是什么意思？
-* Java 中静态方法可以被重写吗？
-* 什么是多态？什么是继承？
-* `Integer` 和 `int` 之间的区别
-* Java 中的对象是否会以引用传递或者值传递？详细说明。
-* 什么是 ThreadPoolExecutor？ [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
-* 本地变量、实例变量以及类变量之间的区别？
-* 什么是反射？ [Link](http://tutorials.jenkov.com/java-reflection/index.html)
-* 在 Java 中什么是强引用、软引用、弱引用以及虚引用？
-* 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
-* 关键字```synchronized```的作用是什么？
-* 为什么说```String```不可变的？
-* 修饰符```transient```和```volatile```的作用是什么？
-* ```finalize()```方法的作用是什么？
-* How does the `try{}finally{}` works?
-* What is the difference between instantiation and initialization of an object?
-* When is a `static` block run?
-* Explain Generics in Java?
-* Difference between `StringBuffer` and `StringBuilder`?
-* `StringBuilder` 是怎么避免不可变字符串分配的问题？
-* 什么是自动装箱和拆箱？
-* 枚举和迭代器有什么区别？
-* Java 中 _fail-fast_ 和 _fail-safe_ 的区别？
-* 什么是 Java 优先级队列？
-* 什么是设计模式？[链接](https://github.com/iluwatar/java-design-patterns)
 
+* 接口可以继承另一个接口吗？
+
+* Java 中 `static` 关键字是什么意思？
+
+* Java 中静态方法可以被重写吗？
+
+* 什么是多态？什么是继承？
+
+* `Integer` 和 `int` 之间的区别
+
+* Java 中的对象是否会以引用传递或者值传递？详细说明。
+
+* 什么是 ThreadPoolExecutor？ [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
+
+* 本地变量、实例变量以及类变量之间的区别？
+
+* 什么是反射？ [Link](http://tutorials.jenkov.com/java-reflection/index.html)
+
+* 在 Java 中什么是强引用、软引用、弱引用以及虚引用？
+
+* 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
+
+* 关键字```synchronized```的作用是什么？
+
+* 为什么说```String```不可变的？
+
+* 修饰符```transient```和```volatile```的作用是什么？
+
+* ```finalize()```方法的作用是什么？
+
+* 异常捕获中的 `try{}finally{}` 块儿是如何工作的?
+
+* 对象的实例化和初始化之间的区别是什么?
+
+* 静态块何时运行?
+
+* 解释一下 Java 中的泛型?
+
+*  `StringBuffer` 和`StringBuilder` 的区别在哪里?
+
+* `StringBuilder` 是怎么避免不可变字符串分配的问题？
+
+* 什么是自动装箱和拆箱？
+
+* 枚举和迭代器有什么区别？
+
+* Java 中 _fail-fast_ 和 _fail-safe_ 的区别？
+
+* 什么是 Java 优先级队列？
+
+* 什么是设计模式？[Link](https://github.com/iluwatar/java-design-patterns)
 
 ### License
 
